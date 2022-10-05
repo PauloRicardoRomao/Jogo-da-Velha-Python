@@ -4,7 +4,7 @@ class JogodaVelha:
                           "1":" ", "2":" ", "3":" "
                           }
     turno = None
-    def __init__(self, jogador_inicial = "X"):
+    def __init__(self, jogador_inicial): #):
         self.turno = jogador_inicial
         
     def exibir_tabuleiro(self):
@@ -74,10 +74,29 @@ class JogodaVelha:
             
             self.turno = "X" if self.turno == "O" else "O"
             
-        
 
-jogo = JogodaVelha()
-jogo.jogar()
+
+jogador = input("Qual você escolhe 'X' ou 'O'? ").strip().upper()
+while True:
+    if jogador != 'X' and jogador != 'O':
+        print("Opção inválida.")
+        break
+    elif jogador == 'X':
+        print("Você escolheu 'X'.")
+        print("*=*"*10)
+        jogo = JogodaVelha(jogador)
+        jogo.jogar()
+        break
+    elif jogador == "O":
+        print("Você escolheu 'O'.")
+        print("*=*"*10)
+        jogo = JogodaVelha(jogador)
+        jogo.jogar()
+        break
+    
+print("*=*"*10)
+
+
 
 
 
